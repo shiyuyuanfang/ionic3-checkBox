@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+
+  <ion-list>
+
+    <ion-item *ngFor="let item of checkList;let key = index;">
+      <ion-label>{{ item.title }}</ion-label>
+      <ion-checkbox [(ngModel)]="pushCheckList[key]" (click)="checkChange(item.id)"></ion-checkbox>
+    </ion-item>
+
+  </ion-list>
+
+
+  <button ion-button block color="danger" (click)="checkAll()" *ngIf="btnType=='checkAll'">全选</button>
+  <button ion-button block color="danger" (click)="checkAll()" *ngIf="btnType=='checkNone'">取消</button>
+
+
+
+</ion-content>
